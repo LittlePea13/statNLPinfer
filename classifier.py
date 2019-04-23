@@ -3,9 +3,9 @@ import torch.nn as nn
 from embeddings import SentenceEmbedding
 
 
-class FCClassifier(nn.Module):
+class Classifier(nn.Module):
     def __init__(self, config):
-        super(FCClassifier, self).__init__()
+        super(Classifier, self).__init__()
         self.config = config
         self.dropout = config.dropout
         if config.activation == 'tanh':
@@ -42,7 +42,7 @@ class NLIModel(nn.Module):
         super(NLIModel, self).__init__()
         self.config = config
         self.sentence_embedding = SentenceEmbedding(config)
-        self.classifier = FCClassifier(config)
+        self.classifier = Classifier(config)
 
     def forward(self, batch):
         prem = self.sentence_embedding(batch.premise)
