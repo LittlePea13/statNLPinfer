@@ -39,14 +39,10 @@ class LSTMEncoder(nn.Module):
                            num_layers=config.layers,
                            dropout=config.dropout,
                            bidirectional=False)
-        self.batch_norm = nn.BatchNorm1d(config.hidden_dim)
-
     def forward(self, inputs):
         batch_size = inputs.size()[1]
         embedding = self.rnn(inputs)
         embedding = embedding[0].mean(0)
-        #embedding = embedding.squeeze(0)
-        #embedding = self.batch_norm(embedding)
         return embedding
 
 class BiLSTMMaxPoolEncoder(nn.Module):
@@ -82,6 +78,6 @@ class BiLSTMEncoder(nn.Module):
         batch_size = inputs.size()[1]
         embedding = self.rnn(inputs)
         embedding = embedding[0].mean(0)
-        #embedding = embedding.squeeze(0)
-        embedding = self.batch_norm(embedding)
+        # Tried batch_norm
+        #embedding = self.batch_norm(embedding)
         return embedding
