@@ -8,9 +8,7 @@ class FCClassifier(nn.Module):
         super(FCClassifier, self).__init__()
         self.config = config
         self.dropout = config.dropout
-        if config.activation == 'leakyrelu':
-            self.activation = nn.LeakyReLU()
-        elif config.activation == 'tanh':
+        if config.activation == 'tanh':
             self.activation = nn.Tanh()
         else:
             self.activation = nn.ReLU()
