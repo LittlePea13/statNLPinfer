@@ -19,8 +19,8 @@ Options for encoders are:
 
 For the infer task, 
 
-	infer.py --custom True --hypothesis='I went to college' --premise='I have an university degree' --model_path 'results/final_LSTMEncoder_2048D.pt'
+	python infer.py --custom True --hypothesis='I went to college' --premise='I have an university degree' --model_path 'results/final_LSTMEncoder_2048D.pt'
 
 Or to run on the test set:
 
-	infer.py --custom False --model_path 'results/final_LSTMEncoder_2048D.pt'
+	python infer.py --custom False --model_path 'results/final_LSTMEncoder_2048D.pt'
